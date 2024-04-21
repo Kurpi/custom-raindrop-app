@@ -19,3 +19,6 @@ storage()
 highlights()
 popup()
 fixSafariPermissions()
+
+import customSidePanel from './customSidePanel'
+customSidePanel()
