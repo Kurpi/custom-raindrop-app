@@ -142,6 +142,15 @@ module.exports = ({ vendor, production=false }, l) => {
 				description: '__MSG_openRaindrop__',
 			},
 
+			...(!production && vendor == 'chrome' ? {
+				reload_dev_extenstion: {
+					suggested_key: {
+						default: 'Ctrl+Shift+Q'
+					},
+					description: 'Reload dev extention'
+				}
+			}: {}),
+
 			...(vendor == 'chrome' ? {
 				execute_side_panel: {
 					suggested_key: {

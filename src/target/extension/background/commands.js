@@ -32,6 +32,14 @@ async function onCommand(command, tab) {
                 active: true
             })
 
+        case 'reload_dev_extenstion': {
+            /*
+             Only for development purposes (temporary)
+             To avoid manual reloading of dev raindrop extenstion after each change in the code (on page: "brave://extensions/" or "chrome://extensions/" in "Developer mode") you can set shortcut to "Open Raindrop.io web-site" and call reloading by shortcut
+            */
+            return browser.runtime.reload();
+        }
+
         case 'execute_side_panel': {
             const { windowId } = tab
             return browser.sidePanel.open({ windowId })
