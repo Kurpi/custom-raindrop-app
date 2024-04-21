@@ -8,7 +8,7 @@ const CopyPlugin = require('copy-webpack-plugin')
 const ZipPlugin = require('zip-webpack-plugin')
 
 module.exports = (env={}, args={}) => {
-    const outputPath = path.resolve(__dirname, '..', 'dist', env.vendor, env.production?'prod':'dev')
+    const outputPath = path.resolve(__dirname, '..', 'dist', env.vendor, env.production?'local-prod-build':'dev')
 
     env.filename = '[name]'
     
