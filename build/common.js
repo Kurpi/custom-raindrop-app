@@ -5,7 +5,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const TerserJSPlugin = require('terser-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin')
-const SentryCliPlugin = require('@sentry/webpack-plugin')
+// const SentryCliPlugin = require('@sentry/webpack-plugin')
 
 //defaults
 process.env.SENTRY_RELEASE = String(new Date().getTime())
@@ -87,19 +87,19 @@ module.exports = ({ production, filename='[name].[contenthash]', sentry={} }, { 
 		]),
 
 		//Sentry
-		...(production ? [
-			new SentryCliPlugin({
-				org: 'oblako-corp',
-				project: 'app',
-				authToken: process.env.SENTRY_AUTH_TOKEN, //required in CI environment
-				release: process.env.SENTRY_RELEASE,
+		// ...(production ? [
+		// 	new SentryCliPlugin({
+		// 		org: 'oblako-corp',
+		// 		project: 'app',
+		// 		authToken: process.env.SENTRY_AUTH_TOKEN, //required in CI environment
+		// 		release: process.env.SENTRY_RELEASE,
 
-				include: './src',
-				ignore: [ 'node_modules', 'build', 'dist' ],
-				configFile: path.resolve(__dirname, 'sentry.properties'),
-				...sentry
-			})
-		]: []),
+		// 		include: './src',
+		// 		ignore: [ 'node_modules', 'build', 'dist' ],
+		// 		configFile: path.resolve(__dirname, 'sentry.properties'),
+		// 		...sentry
+		// 	})
+		// ]: []),
 
 		new webpack.DefinePlugin({
 			'process.env.NODE_ENV': JSON.stringify(production?'production':'development'),
